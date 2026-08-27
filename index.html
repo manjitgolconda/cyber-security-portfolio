@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MANJIT GOLCONDA // Cyber Security Analyst | Ethical Hacker | VAPT Specialist</title>
+  <meta name="description" content="Portfolio and tactical security dossier of Manjit Golconda - Cyber Security Analyst, Ethical Hacker, and VAPT Specialist based in Hyderabad, India.">
+  <link rel="stylesheet" href="index.css">
+  <link rel="icon" type="image/png" href="assets/vigilante-emblem.png">
+</head>
+<body>
+
+  <!-- Custom Tactical HUD Cursor -->
+  <div id="tactical-cursor" aria-hidden="true">
+    <img src="assets/vigilante-emblem.png" alt="" class="cursor-emblem">
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+  </div>
+
+  <!-- Tactical Scanline & Vignette Overlays -->
+  <div class="scanline-overlay" aria-hidden="true"></div>
+  <div class="ambient-vignette" aria-hidden="true"></div>
+
+  <!-- Interactive Bat-Signal Canvas Background -->
+  <canvas id="bat-signal-canvas" aria-hidden="true"></canvas>
+
+  <!-- TOP HUD BAR & TICKER -->
+  <header class="top-hud-bar" id="top-hud">
+    <div class="top-hud-ticker">
+      <div class="top-hud-ticker-left">
+        <div class="ticker-item">
+          <span class="indicator-dot" style="width: 6px; height: 6px; background: var(--primary-container); border-radius: 50%;"></span>
+          <span>NET: <strong class="text-red">ENCRYPTED_RELAY_HYD</strong></span>
+        </div>
+        <div class="ticker-item">
+          <span>THREAT DEFENSE: <strong class="text-crimson">[VAPT & ETHICAL HACKING // ACTIVE]</strong></span>
+        </div>
+        <div class="ticker-item">
+          <span>LOCATION: <strong>HYDERABAD, INDIA</strong> (17.3850° N, 78.4867° E)</span>
+        </div>
+      </div>
+      <div class="top-hud-ticker-right">
+        <div class="ticker-item">
+          <span>SYS_TIME: <span id="hud-clock">00:00:00 UTC</span></span>
+        </div>
+        <div class="ticker-item">
+          <span>CLEARANCE: <span class="text-red">[LEVEL_5_EYES_ONLY]</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo" id="nav-logo-link">
+        <img src="assets/vigilante-emblem.png" alt="Vigilante Emblem" class="nav-logo-img">
+        <div>
+          <div class="nav-logo-text">MANJIT<span class="text-red">_GOLCONDA</span></div>
+        </div>
+        <span class="nav-logo-tag">VAPT-001</span>
+      </a>
+
+      <nav>
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="#about" class="nav-link" data-nav="about">DOSSIER</a></li>
+          <li><a href="#education" class="nav-link" data-nav="education">EDUCATION</a></li>
+          <li><a href="#skills" class="nav-link" data-nav="skills">ARSENAL</a></li>
+          <li><a href="#projects" class="nav-link" data-nav="projects">OPERATIONS</a></li>
+          <li><a href="#certifications" class="nav-link" data-nav="certifications">CERTS</a></li>
+          <li><a href="#terminal" class="nav-link" data-nav="terminal">BATCAVE CLI</a></li>
+          <li><a href="#experience" class="nav-link" data-nav="experience">SURVEILLANCE</a></li>
+          <li><a href="#contact" class="nav-link" data-nav="contact">DISPATCH</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-controls">
+        <button class="icon-control-btn" id="btn-toggle-audio" title="Toggle Tactical SFX Audio" aria-label="Toggle Audio">
+          <svg id="icon-sound-on" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+          </svg>
+          <svg id="icon-sound-off" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <line x1="23" y1="9" x2="17" y2="15"></line>
+            <line x1="17" y1="9" x2="23" y2="15"></line>
+          </svg>
+        </button>
+
+        <button class="icon-control-btn active" id="btn-toggle-batsignal" title="Toggle Bat-Signal Spotlight" aria-label="Toggle Bat-Signal">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+          </svg>
+        </button>
+
+        <button class="mobile-nav-toggle" id="mobile-nav-btn" aria-label="Toggle Navigation Menu">
+          [MENU]
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION: TACTICAL DOSSIER -->
+    <section id="hero" class="section-wrapper">
+      <div class="container">
+        <div class="hero-grid">
+          
+          <div class="hero-dossier">
+            <div class="hero-badge-row">
+              <span class="classification-tag tag-offensive">[CYBER SECURITY ANALYST]</span>
+              <span class="classification-tag tag-defensive">[ETHICAL HACKER]</span>
+              <span class="classification-tag tag-dev">[VAPT SPECIALIST]</span>
+            </div>
+
+            <div class="hero-title">
+              <div class="label-md text-red" style="margin-bottom: 8px;">// SECURITY DOSSIER: MANJIT GOLCONDA</div>
+              <h1 class="display-xl hero-main-title">CYBER SECURITY ANALYST & VAPT SPECIALIST</h1>
+            </div>
+
+            <!-- Fast Contact Intelligence Strip -->
+            <div class="hero-contact-strip">
+              <span class="hero-contact-item">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                Hyderabad, India
+              </span>
+              <a href="tel:+919063364603" class="hero-contact-item">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                +91 9063364603
+              </a>
+              <a href="mailto:manjitgolconda@gmail.com" class="hero-contact-item">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                manjitgolconda@gmail.com
+              </a>
+              <a href="https://linkedin.com/in/manjit-golconda" target="_blank" rel="noopener" class="hero-contact-item">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                LinkedIn
+              </a>
+              <a href="https://github.com/manjitgolconda" target="_blank" rel="noopener" class="hero-contact-item">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                GitHub
+              </a>
+            </div>
+
+            <div class="hero-typing-container">
+              <p class="hero-typing-text">
+                <span id="hero-typewriter"></span><span class="typing-cursor"></span>
+              </p>
+            </div>
+
+            <div class="hero-actions">
+              <a href="#contact" class="btn btn-primary" id="hero-btn-dispatch">
+                <span>[ INITIALIZE DISPATCH ]</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+
+              <a href="#projects" class="btn btn-secondary" id="hero-btn-operations">
+                <span>[ ACCESS OPERATIONS ]</span>
+              </a>
+
+              <a href="#terminal" class="btn btn-ghost-cyan" id="hero-btn-cli">
+                <span>[ EXECUTE CLI ]</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- TACTICAL PROFILE REVEAL CONSOLE (DUAL-LAYER STACKED PORTRAIT) -->
+          <div class="hero-telemetry-hud">
+            <div class="portrait-hud-card chamfer-card" id="portrait-reveal-card" role="region" aria-label="Tactical Identity Dossier">
+              
+              <div class="module-header">
+                <div class="module-header-title">
+                  <span class="indicator-dot" id="portrait-status-dot"></span>
+                  <span id="portrait-status-header">TACTICAL DOSSIER // SUBJECT PROFILE</span>
+                </div>
+                <span class="status-stamp" id="portrait-status-stamp">[ENCRYPTED]</span>
+              </div>
+
+              <!-- Stacked Dual-Image Frame (Cursor Spotlight Reveal) -->
+              <div class="portrait-viewport" id="portrait-viewport" tabindex="0" aria-label="Move cursor over image to reveal unmasked identity">
+                <!-- Base Layer: Image 2 (Masked State - Base Persona) -->
+                <div class="portrait-layer portrait-layer-masked" id="portrait-layer-masked">
+                  <img src="assets/profile-masked.jpg" alt="Manjit Golconda - Masked Tactical Persona" class="portrait-img">
+                  <div class="portrait-masked-overlay">
+                    <div class="scan-laser-line"></div>
+                  </div>
+                </div>
+
+                <!-- Reveal Layer: Image 1 (Unmasked State - Appears only near cursor) -->
+                <div class="portrait-layer portrait-layer-unmasked" id="portrait-layer-unmasked">
+                  <img src="assets/profile-unmasked.jpg" alt="Manjit Golconda - Declassified Identity" class="portrait-img">
+                  <div class="portrait-classified-overlay">
+                    <span class="declassified-watermark">DECLASSIFIED</span>
+                  </div>
+                </div>
+
+                <!-- Top-Right Spotlight Searchlight Beam SVG Overlay (Cutout Mask for Clean Cursor Circle) -->
+                <svg class="portrait-spotlight-svg" id="portrait-spotlight-svg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <mask id="spotlight-cutout-mask">
+                      <!-- White reveals the searchlight beam outside -->
+                      <rect width="100%" height="100%" fill="white" />
+                      <!-- Black circle blocks the searchlight from ever entering inside the cursor aperture -->
+                      <circle id="spotlight-mask-hole" cx="-500" cy="-500" r="100" fill="black" />
+                    </mask>
+
+                    <linearGradient id="spotlight-cone-grad" x1="100%" y1="0%" x2="0%" y2="100%" gradientUnits="userSpaceOnUse">
+                      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95" />
+                      <stop offset="15%" stop-color="#ffffff" stop-opacity="0.75" />
+                      <stop offset="45%" stop-color="#f8fafc" stop-opacity="0.38" />
+                      <stop offset="85%" stop-color="#ffffff" stop-opacity="0.18" />
+                      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.45" />
+                    </linearGradient>
+                  </defs>
+                  <g mask="url(#spotlight-cutout-mask)">
+                    <polygon id="spotlight-beam-polygon" points="0,0 0,0 0,0" fill="url(#spotlight-cone-grad)" />
+                  </g>
+                </svg>
+
+                <!-- Top-Right Emitter Diode / Spotlight Projector -->
+                <div class="spotlight-emitter-node" aria-hidden="true">
+                  <div class="emitter-core"></div>
+                  <div class="emitter-flare"></div>
+                  <span class="emitter-label">SEARCHLIGHT</span>
+                </div>
+
+                <!-- Cursor-Following Spotlight Lens Reticle -->
+                <div class="portrait-cursor-lens" id="portrait-cursor-lens" aria-hidden="true">
+                  <div class="lens-ring"></div>
+                  <div class="lens-cross-h"></div>
+                  <div class="lens-cross-v"></div>
+                  <span class="lens-tag">UNMASK</span>
+                </div>
+
+                <!-- Tactical Reticle HUD Overlays on corners -->
+                <div class="portrait-hud-corners" aria-hidden="true">
+                  <span class="hud-corner top-left"></span>
+                  <span class="hud-corner top-right"></span>
+                  <span class="hud-corner bottom-left"></span>
+                  <span class="hud-corner bottom-right"></span>
+                </div>
+
+                <!-- Interaction Cue Label -->
+                <div class="portrait-interaction-cue" id="portrait-interaction-cue">
+                  <span class="cue-icon">&#x2B21;</span>
+                  <span class="cue-text">[ MOVE CURSOR OVER IMAGE TO UNMASK ]</span>
+                </div>
+              </div>
+
+              <!-- Telemetry Stats Under Portrait -->
+              <div class="reticle-stats-grid">
+                <div class="stat-chip">
+                  <span class="stat-label">IDENTITY STATUS</span>
+                  <span class="stat-value text-red" id="portrait-val-status">MASKED // SECURE</span>
+                </div>
+                <div class="stat-chip">
+                  <span class="stat-label">SECURITY CLEARANCE</span>
+                  <span class="stat-value" id="portrait-val-clearance">LEVEL-5 OMEGA</span>
+                </div>
+                <div class="stat-chip">
+                  <span class="stat-label">SECTOR NODE</span>
+                  <span class="stat-value">HYDERABAD // IND</span>
+                </div>
+                <div class="stat-chip">
+                  <span class="stat-label">THREAT INTERCEPT</span>
+                  <span class="stat-value text-red">0 BREACHES</span>
+                </div>
+              </div>
+
+              <div class="confidential-watermark">TOP SECRET</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 01: SUBJECT DOSSIER (ABOUT) -->
+    <section id="about" class="section-wrapper">
+      <div class="container">
+        <div class="section-tag">[ SECTION 01 // PERSONNEL DOSSIER ]</div>
+        <h2 class="headline-lg" style="margin-bottom: var(--space-8);">CLASSIFIED PROFILE // OPERATOR: <span class="text-red">MANJIT GOLCONDA</span></h2>
+
+        <div class="about-grid">
+          
+          <div class="dossier-profile-card hud-panel">
+            <div class="module-header">
+              <div class="module-header-title">
+                <span class="indicator-dot"></span>
+                <span>SUBJECT OPERATIONAL BRIEFING</span>
+              </div>
+              <span class="status-stamp">[VERIFIED IDENTITY]</span>
+            </div>
+
+            <table class="dossier-meta-table">
+              <tbody>
+                <tr>
+                  <td>OPERATOR NAME:</td>
+                  <td><strong>MANJIT GOLCONDA</strong></td>
+                </tr>
+                <tr>
+                  <td>NATIONALITY / JURISDICTION:</td>
+                  <td>Indian / Hyderabad, India</td>
+                </tr>
+                <tr>
+                  <td>PRIMARY SPECIALIZATION:</td>
+                  <td>Vulnerability Assessment & Penetration Testing (VAPT), Ethical Hacking, AppSec</td>
+                </tr>
+                <tr>
+                  <td>ACADEMIC STANDING:</td>
+                  <td>B.Tech in CSE — Cyber Security (2023 – 2027)</td>
+                </tr>
+                <tr>
+                  <td>CORE TOOLS:</td>
+                  <td>Kali Linux, Nmap, OpenVAS, OWASP ZAP, SQLMap</td>
+                </tr>
+                <tr>
+                  <td>RESEARCH FOCUS:</td>
+                  <td>Ethical Hacking, Network Security, Web Security, NLP, Secure Systems</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="dossier-narrative">
+              <p>
+                B.Tech Cyber Security student with hands-on academic and project experience in web development, networking, vulnerability assessment and penetration testing. 
+                Dedicated to dissecting software surfaces, executing controlled adversary simulations, and strengthening distributed environments.
+              </p>
+              <p>
+                Actively interested in ethical hacking, application security, secure systems, natural language processing (NLP) and practical cybersecurity research.
+                Combines offensive red-teaming methodologies with full-stack engineering expertise to build resilient, safety-critical applications.
+              </p>
+              <p>
+                Proven experience conducting authorized reconnaissance, port auditing, vulnerability scanning, and protocol traffic analysis while building civic AI platforms and production web prototypes.
+              </p>
+            </div>
+
+            <div class="confidential-watermark">CONFIDENTIAL</div>
+          </div>
+
+          <!-- BIOMETRIC DIAGNOSTIC GAUGES -->
+          <div class="diagnostic-panel">
+            <div class="telemetry-gauge chamfer-card">
+              <div class="gauge-header">
+                <span>VAPT & ETHICAL HACKING METHODOLOGY</span>
+                <span class="text-red">96%</span>
+              </div>
+              <div class="gauge-bar-track">
+                <div class="gauge-bar-fill" style="width: 96%;"></div>
+              </div>
+            </div>
+
+            <div class="telemetry-gauge chamfer-card">
+              <div class="gauge-header">
+                <span>RECONNAISSANCE & NETWORK SCANNING (NMAP/OPENVAS)</span>
+                <span class="text-red">95%</span>
+              </div>
+              <div class="gauge-bar-track">
+                <div class="gauge-bar-fill" style="width: 95%;"></div>
+              </div>
+            </div>
+
+            <div class="telemetry-gauge chamfer-card">
+              <div class="gauge-header">
+                <span>WEB APPLICATION SECURITY (OWASP ZAP / SQLMAP)</span>
+                <span class="text-cyan">92%</span>
+              </div>
+              <div class="gauge-bar-track">
+                <div class="gauge-bar-fill cyan" style="width: 92%;"></div>
+              </div>
+            </div>
+
+            <div class="telemetry-gauge chamfer-card">
+              <div class="gauge-header">
+                <span>SECURE FULL-STACK DEVELOPMENT (REACT / NODE / JS)</span>
+                <span class="text-red">90%</span>
+              </div>
+              <div class="gauge-bar-track">
+                <div class="gauge-bar-fill" style="width: 90%;"></div>
+              </div>
+            </div>
+
+            <div class="telemetry-gauge chamfer-card">
+              <div class="gauge-header">
+                <span>NATURAL LANGUAGE PROCESSING (NLP) & RESEARCH</span>
+                <span class="text-cyan">88%</span>
+              </div>
+              <div class="gauge-bar-track">
+                <div class="gauge-bar-fill cyan" style="width: 88%;"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: ACADEMIC EDUCATION -->
+    <section id="education" class="section-wrapper">
+      <div class="container">
+        <div class="section-tag">[ SECTION 02 // ACADEMIC RECORD ]</div>
+        <h2 class="headline-lg" style="margin-bottom: var(--space-8);">FORMAL EDUCATION & RESEARCH FOCUS</h2>
+
+        <div class="edu-grid">
+          <div class="edu-card chamfer-card">
+            <div class="edu-header">
+              <div>
+                <h3 class="edu-degree">B.Tech in Computer Science Engineering — Cyber Security</h3>
+                <div class="edu-institution">Sphoorthy Engineering College, Hyderabad</div>
+              </div>
+              <div class="edu-timeline">2023 – 2027 // SPECIALIZATION: CYBER SECURITY</div>
+            </div>
+
+            <div class="edu-section-title">// RELEVANT ACADEMIC COURSEWORK</div>
+            <div class="tag-cloud">
+              <span class="tag-pill">Network Security</span>
+              <span class="tag-pill">Cybersecurity Fundamentals</span>
+              <span class="tag-pill">Computer Networks</span>
+              <span class="tag-pill">Web Technologies</span>
+              <span class="tag-pill">Operating Systems</span>
+              <span class="tag-pill">Database Systems</span>
+              <span class="tag-pill">Software Engineering</span>
+            </div>
+
+            <div class="edu-section-title" style="margin-top: 8px;">// KEY RESEARCH & TECHNICAL INTERESTS</div>
+            <div class="tag-cloud">
+              <span class="tag-pill cyan">Ethical Hacking</span>
+              <span class="tag-pill cyan">VAPT</span>
+              <span class="tag-pill cyan">Network Security</span>
+              <span class="tag-pill cyan">Web Security</span>
+              <span class="tag-pill cyan">Linux Internals</span>
+              <span class="tag-pill cyan">Secure App Development</span>
+              <span class="tag-pill cyan">NLP (Natural Language Processing)</span>
+            </div>
+
+            <div class="edu-section-title" style="margin-top: 8px;">// TARGET CAREER PATHWAYS</div>
+            <div class="tag-cloud">
+              <span class="tag-pill">Cybersecurity Analyst</span>
+              <span class="tag-pill">VAPT / Penetration Testing Specialist</span>
+              <span class="tag-pill">SOC / Security Operations</span>
+              <span class="tag-pill">Network Security Engineer</span>
+              <span class="tag-pill">Web Application Security Specialist</span>
+              <span class="tag-pill">Security Engineering</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 03: ARSENAL (SKILLS) -->
+    <section id="skills" class="section-wrapper">
+      <div class="container">
+        <div class="section-tag">[ SECTION 03 // TECHNICAL ARSENAL ]</div>
+        <h2 class="headline-lg" style="margin-bottom: var(--space-8);">TACTICAL CAPABILITIES & TOOLSET</h2>
+
+        <div class="arsenal-grid">
+          
+          <!-- Category 1: Cybersecurity & VAPT -->
+          <div class="arsenal-card hud-panel">
+            <div>
+              <div class="arsenal-header">
+                <span class="arsenal-category">CYBERSECURITY & VAPT</span>
+                <span class="classification-tag tag-offensive">[OFFENSIVE]</span>
+              </div>
+              <ul class="arsenal-item-list">
+                <li class="arsenal-item">
+                  <span class="arsenal-item-name">VAPT (Vulnerability Assessment & Pentest)</span>
+                  <span class="arsenal-item-level">[SPECIALIST]</span>
+                </li>
+                <li class="arsenal-item">
+                  <span class="arsenal-item-name">Ethical Hacking & Exploitation</span>
+                  <span class="arsenal-item-level">[ADVANCED]</span>
+                </li>
+                <li class="arsenal-item">
+                  <span class="arsenal-item-name">Network & Protocol Security</span>
+                  <span class="arsenal-item-level">[PROFICIENT]</span>
+                </li>
+                <li class="arsenal-item">
+                  <span class="arsenal-item-name">Web Application Security</span>
+                  <span class="arsenal-item-level">[EXPERT]</span>
+                </li>
+                <li class="arsenal-item">
+                  <span class="arsenal-item-name">Reconnaissance & Footprinting</span>
+                  <span class="arsenal-item-level">[ACTIVE]</span>
+                </li>
+              </ul>
+            </div>
+            <div class="status-stamp">[AUDITED // LAB TESTED]</div>
+          </div>
+
+          <!-- Category 2: Security Tools -->
+          <div class="arsenal-card hud-panel">
+            <div>
+              <div class="arsenal-header">
+                <span class="arsenal-category">TACTICAL SECURITY TOOLS</span>
+                <span class="classification-tag tag-defensive">[SECURITY SUITE]</span>
+              </div>
+              <ul class="arsenal-item-list">
+                <li class="arsenal-item">
+                  <span class="arsenal-item-name">Kali Linux Distribution</span>
+                  <span class="arsenal-item-level">[PRIMARY OS]</span>
+                </li>
+                <li class="arsenal-item">
+                  <span class="arsenal-item-name">Nmap (Network Mapper & Port Auditing)</span>
+                  <span class="arsenal-item-level">[EXPERT]</span>
+                </li>
+                <li class="arsenal-item">
+                  <span class="arsenal-item-name">OpenVAS Vulnerability Scanner</span>
+                  <span class="arsenal-item-level">[MASTERY]</span>
+                </li>
+                <li class="arsenal-item">
+                  <span class="arsenal-item-name">OWASP ZAP (Attack Proxy)</span>
+                  <span class="arsenal-item-level">[ADVANCED]</span>
+                </li>
+                <li class="arsenal-item">
+                  <span class="arsenal-item-name">SQLMap (Automated SQL Injection)</span>
+                  <span class="arsenal-item-level">[PROFICIENT]</span>
+                </li>
+              </ul>
+            </div>
+            <div class="status-stamp stamp-cyan">[AUTHORISED TOOLKIT]</div>
+          </div>
+
+          <!-- Category 3: Programming & Logic -->
+          <div class="arsenal-card hud-panel">
+            <div>
+              <div class="arsenal-header">
+                <span class="arsenal-category">PROGRAMMING LANGUAGES</span>
+                <span class="classification-tag tag-dev">[LANGUAGES]</span>
+              </div>
+              <ul class="arsenal-item-list">
+                <li class="arsenal-item">
+                  <span class="arsenal-item-name">Python (Security Scripting & Automation)</span>
+                  <span class="arsenal-item-level">[EXPERT]</span>
+                </li>
+                <li class="arsenal-item">
+                  <span class="arsenal-item-name">JavaScript / Modern ESNext</span>
+                  <span class="arsenal-item-level">[MASTERY]</span>
+                </li>
+                <li class="arsenal-item">
+                  <span class="arsenal-item-name">Java (Core & Object-Oriented)</span>
+                  <span class="arsenal-item-level">[PROFICIENT]</span>
+                </li>
+                <li class="arsenal-item">
+                  <span class="arsenal-item-name">HTML5 & Semantic Structure</span>
+                  <span class="arsenal-item-level">[MASTERY]</span>
+                </li>
+                <li class="arsenal-item">
+                  <span class="arsenal-item-name">CSS3 & Brutalist Design Systems</span>
+                  <span class="arsenal-item-level">[ADVANCED]</span>
+                </li>
+              </ul>
+            </div>
+            <div class="status-stamp">[HIGH PERFORMANCE]</div>
+          </div>
+
+          <!-- Category 4: Web Stack & Infrastructure -->
+          <div class="arsenal-card hud-panel">
+            <div>
+              <div class="arsenal-header">
+                <span class="arsenal-category">DEV STACK & PLATFORMS</span>
+                <span class="classification-tag tag-dev">[PLATFORMS]</span>
+              </div>
+              <ul class="arsenal-item-list">
+                <li class="arsenal-item">
+                  <span class="arsenal-item-name">React.js & Tailwind CSS</span>
+                  <span class="arsenal-item-level">[PRODUCTION]</span>
+                </li>
+                <li class="arsenal-item">
+                  <span class="arsenal-item-name">Node.js, Express & REST APIs</span>
+                  <span class="arsenal-item-level">[BACKEND]</span>
+                </li>
+                <li class="arsenal-item">
+                  <span class="arsenal-item-name">Leaflet & GeoJSON Spatial Intelligence</span>
+                  <span class="arsenal-item-level">[GEOSPATIAL]</span>
+                </li>
+                <li class="arsenal-item">
+                  <span class="arsenal-item-name">Git, GitHub & Version Control</span>
+                  <span class="arsenal-item-level">[WORKFLOW]</span>
+                </li>
+                <li class="arsenal-item">
+                  <span class="arsenal-item-name">Linux Platforms & Vercel Hosting</span>
+                  <span class="arsenal-item-level">[DEPLOYED]</span>
+                </li>
+              </ul>
+            </div>
+            <div class="status-stamp stamp-cyan">[HARDENED]</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 04: OPERATIONS (PROJECTS) -->
+    <section id="projects" class="section-wrapper">
+      <div class="container">
+        <div class="section-tag">[ SECTION 04 // ACTIVE OPERATIONS ]</div>
+        <h2 class="headline-lg" style="margin-bottom: var(--space-8);">FEATURED MISSIONS & CODE REPOSITORIES</h2>
+
+        <div class="operations-grid">
+
+          <!-- Project 1: Safe Route Hyderabad -->
+          <div class="operation-card chamfer-card" data-project="saferoute">
+            <div class="operation-visual-terminal">
+              <div>
+                <div class="terminal-header-dots"><span></span><span></span><span></span></div>
+                <div>OPERATION_SAFEROUTE // CIVIC_AI_NAV</div>
+              </div>
+              <div style="color: var(--primary); font-size: 0.72rem;">
+                &gt; JURISDICTION: HYDERABAD_METRO<br>
+                &gt; ROUTING: SHORTEST vs SAFEST COMPARISON<br>
+                &gt; SPATIAL LAYERS: CRIME HEATMAP + LIGHTING
+              </div>
+            </div>
+            <div class="operation-body">
+              <div>
+                <div class="operation-title-row">
+                  <h3 class="operation-title">SAFE ROUTE HYDERABAD: CIVIC AI PLATFORM</h3>
+                  <span class="status-stamp">[MAJOR PROJECT]</span>
+                </div>
+                <p class="operation-desc">
+                  A safety-aware navigation system for Hyderabad comparing shortest and safest routes using Leaflet and OSRM. 
+                  Integrates crime heatmaps, poorly-lit zones, police station coordinates, live geolocation, and client-side unsafe area reporting with zero paid API overhead.
+                </p>
+                <div class="operation-tech-tags">
+                  <span class="tech-tag">LEAFLET</span>
+                  <span class="tech-tag">OSRM</span>
+                  <span class="tech-tag">JAVASCRIPT</span>
+                  <span class="tech-tag">GEOJSON</span>
+                  <span class="tech-tag">HEATMAPS</span>
+                  <span class="tech-tag">LOCALSTORAGE</span>
+                </div>
+              </div>
+              <div class="operation-links">
+                <button class="btn btn-primary btn-sm btn-inspect-proj" data-modal="saferoute">
+                  [INSPECT SCHEMATIC]
+                </button>
+                <a href="https://github.com/manjitgolconda" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">
+                  [SOURCE REPO]
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2: MSME Connect -->
+          <div class="operation-card chamfer-card" data-project="msme">
+            <div class="operation-visual-terminal">
+              <div>
+                <div class="terminal-header-dots"><span></span><span></span><span></span></div>
+                <div>MSME_CONNECT // HACKATHON_5.0</div>
+              </div>
+              <div style="color: var(--tertiary); font-size: 0.72rem;">
+                &gt; STACK: REACT + NODE + EXPRESS<br>
+                &gt; AUTH: SECURE JWT TOKENS<br>
+                &gt; FEATURE: AI MATCHMAKING & QR CARDS
+              </div>
+            </div>
+            <div class="operation-body">
+              <div>
+                <div class="operation-title-row">
+                  <h3 class="operation-title">MSME CONNECT: HYPERLOCAL B2B MARKETPLACE</h3>
+                  <span class="status-stamp stamp-cyan">[HACKATHON 5.0]</span>
+                </div>
+                <p class="operation-desc">
+                  Hyperlocal verified business platform developed for MSME Idea Hackathon 5.0. 
+                  Engineered with AI-powered vendor matchmaking, JWT-secured authentication, QR-enabled digital profiles, and responsive Tailwind UI.
+                </p>
+                <div class="operation-tech-tags">
+                  <span class="tech-tag">REACT.JS</span>
+                  <span class="tech-tag">TAILWIND CSS</span>
+                  <span class="tech-tag">NODE.JS</span>
+                  <span class="tech-tag">EXPRESS</span>
+                  <span class="tech-tag">JWT AUTH</span>
+                  <span class="tech-tag">REST APIS</span>
+                </div>
+              </div>
+              <div class="operation-links">
+                <button class="btn btn-primary btn-sm btn-inspect-proj" data-modal="msme">
+                  [INSPECT SCHEMATIC]
+                </button>
+                <a href="https://github.com/manjitgolconda" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">
+                  [SOURCE REPO]
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3: Internal Penetration Testing Lab -->
+          <div class="operation-card chamfer-card" data-project="pentestlab">
+            <div class="operation-visual-terminal">
+              <div>
+                <div class="terminal-header-dots"><span></span><span></span><span></span></div>
+                <div>INTERNAL_VAPT_LAB // AUDIT_NODE</div>
+              </div>
+              <div style="color: var(--primary); font-size: 0.72rem;">
+                &gt; SCANNING: NMAP + OPENVAS PROBES<br>
+                &gt; WEB AUDIT: OWASP ZAP + SQLMAP<br>
+                &gt; TRAFFIC: ARP & DNS POISONING ANALYSIS
+              </div>
+            </div>
+            <div class="operation-body">
+              <div>
+                <div class="operation-title-row">
+                  <h3 class="operation-title">INTERNAL PENETRATION TESTING LAB</h3>
+                  <span class="status-stamp">[RESEARCH SUITE]</span>
+                </div>
+                <p class="operation-desc">
+                  Isolated cybersecurity laboratory environment practicing full-cycle network mapping, reconnaissance, port scanning, and controlled exploitation through documented vulnerabilities and legacy protocol weaknesses.
+                </p>
+                <div class="operation-tech-tags">
+                  <span class="tech-tag">KALI LINUX</span>
+                  <span class="tech-tag">NMAP</span>
+                  <span class="tech-tag">OPENVAS</span>
+                  <span class="tech-tag">OWASP ZAP</span>
+                  <span class="tech-tag">SQLMAP</span>
+                  <span class="tech-tag">WIRESHARK</span>
+                </div>
+              </div>
+              <div class="operation-links">
+                <button class="btn btn-primary btn-sm btn-inspect-proj" data-modal="pentestlab">
+                  [INSPECT SCHEMATIC]
+                </button>
+                <a href="https://github.com/manjitgolconda" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">
+                  [SOURCE REPO]
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4: Malicious Email Investigation -->
+          <div class="operation-card chamfer-card" data-project="maltego">
+            <div class="operation-visual-terminal">
+              <div>
+                <div class="terminal-header-dots"><span></span><span></span><span></span></div>
+                <div>MALICIOUS_EMAIL // OSINT_FORENSICS</div>
+              </div>
+              <div style="color: #52ff83; font-size: 0.72rem;">
+                &gt; ENGINE: MALTEGO TRANSFORMS<br>
+                &gt; DISSECTION: RFC HEADER FORENSICS<br>
+                &gt; INTEL: THREAT INFRASTRUCTURE MAPPING
+              </div>
+            </div>
+            <div class="operation-body">
+              <div>
+                <div class="operation-title-row">
+                  <h3 class="operation-title">MALICIOUS EMAIL INVESTIGATION & OSINT</h3>
+                  <span class="status-stamp">[COMPLETED]</span>
+                </div>
+                <p class="operation-desc">
+                  Phishing header analysis, spoofing detection, and threat actor infrastructure attribution using Maltego transforms, domain reconnaissance, and Python forensic extraction scripts.
+                </p>
+                <div class="operation-tech-tags">
+                  <span class="tech-tag">MALTEGO</span>
+                  <span class="tech-tag">OSINT</span>
+                  <span class="tech-tag">EMAIL FORENSICS</span>
+                  <span class="tech-tag">PYTHON</span>
+                  <span class="tech-tag">THREAT INTEL</span>
+                </div>
+              </div>
+              <div class="operation-links">
+                <button class="btn btn-primary btn-sm btn-inspect-proj" data-modal="maltego">
+                  [INSPECT SCHEMATIC]
+                </button>
+                <a href="https://github.com/manjitgolconda" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">
+                  [SOURCE REPO]
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 05: CERTIFICATIONS & WORKSHOPS -->
+    <section id="certifications" class="section-wrapper">
+      <div class="container">
+        <div class="section-tag">[ SECTION 05 // CREDENTIALS & WORKSHOPS ]</div>
+        <h2 class="headline-lg" style="margin-bottom: var(--space-8);">VERIFIED CERTIFICATIONS & TACTICAL WORKSHOPS</h2>
+
+        <div class="cert-grid">
+          
+          <div class="cert-card chamfer-card">
+            <div class="cert-top">
+              <span class="classification-tag tag-dev">[COURSE COMPLETION]</span>
+              <span class="cert-date">AUG 2026</span>
+            </div>
+            <div>
+              <h3 class="cert-title">Natural Language Processing for Developers</h3>
+              <div class="cert-issuer">
+                <span>&#9632;</span> Infosys / Springboard
+              </div>
+            </div>
+          </div>
+
+          <div class="cert-card chamfer-card">
+            <div class="cert-top">
+              <span class="classification-tag tag-offensive">[PARTICIPATION]</span>
+              <span class="cert-date">AUG 2026</span>
+            </div>
+            <div>
+              <h3 class="cert-title">Cybersecurity</h3>
+              <div class="cert-issuer">
+                <span>&#9632;</span> Skill India Digital Hub / Tech Mahindra Foundation
+              </div>
+            </div>
+          </div>
+
+          <div class="cert-card chamfer-card">
+            <div class="cert-top">
+              <span class="classification-tag tag-defensive">[COURSE COMPLETION]</span>
+              <span class="cert-date">AUG 2025</span>
+            </div>
+            <div>
+              <h3 class="cert-title">Introduction to Cybersecurity</h3>
+              <div class="cert-issuer">
+                <span>&#9632;</span> Cisco Networking Academy
+              </div>
+            </div>
+          </div>
+
+          <div class="cert-card chamfer-card">
+            <div class="cert-top">
+              <span class="classification-tag tag-dev">[CERTIFICATE]</span>
+              <span class="cert-date">2024</span>
+            </div>
+            <div>
+              <h3 class="cert-title">Programming Foundations with Python</h3>
+              <div class="cert-issuer">
+                <span>&#9632;</span> CCBP 4.0 Academy
+              </div>
+            </div>
+          </div>
+
+          <div class="cert-card chamfer-card">
+            <div class="cert-top">
+              <span class="classification-tag tag-dev">[7-DAY MILESTONE]</span>
+              <span class="cert-date">OCT 2024</span>
+            </div>
+            <div>
+              <h3 class="cert-title">NxtCode-7 Under 7 Challenge</h3>
+              <div class="cert-issuer">
+                <span>&#9632;</span> Certificate of Participation
+              </div>
+            </div>
+          </div>
+
+          <div class="cert-card chamfer-card">
+            <div class="cert-top">
+              <span class="classification-tag tag-defensive">[MEGA WORKSHOP]</span>
+              <span class="cert-date">JUN 2024</span>
+            </div>
+            <div>
+              <h3 class="cert-title">AWS Mega Workshop</h3>
+              <div class="cert-issuer">
+                <span>&#9632;</span> Cloud Infrastructure & Computing
+              </div>
+            </div>
+          </div>
+
+          <div class="cert-card chamfer-card">
+            <div class="cert-top">
+              <span class="classification-tag tag-offensive">[MEGA WORKSHOP]</span>
+              <span class="cert-date">OCT 2023</span>
+            </div>
+            <div>
+              <h3 class="cert-title">Ethical Hacking Mega Workshop</h3>
+              <div class="cert-issuer">
+                <span>&#9632;</span> Offensive Security & Penetration Concepts
+              </div>
+            </div>
+          </div>
+
+          <div class="cert-card chamfer-card">
+            <div class="cert-top">
+              <span class="classification-tag tag-defensive">[PROJECT COMPLETION]</span>
+              <span class="cert-date">OCT 2023</span>
+            </div>
+            <div>
+              <h3 class="cert-title">Malicious Email Investigation using Maltego</h3>
+              <div class="cert-issuer">
+                <span>&#9632;</span> Threat Intelligence & Email Forensics
+              </div>
+            </div>
+          </div>
+
+          <div class="cert-card chamfer-card">
+            <div class="cert-top">
+              <span class="classification-tag tag-offensive">[NATIONAL INITIATIVE]</span>
+              <span class="cert-date">SEP 2023</span>
+            </div>
+            <div>
+              <h3 class="cert-title">Cyber Oath — Building India's Cyber Army</h3>
+              <div class="cert-issuer">
+                <span>&#9632;</span> Cyber Defense Mega Workshop
+              </div>
+            </div>
+          </div>
+
+          <div class="cert-card chamfer-card">
+            <div class="cert-top">
+              <span class="classification-tag tag-dev">[AI WORKSHOP]</span>
+              <span class="cert-date">AUG 2023</span>
+            </div>
+            <div>
+              <h3 class="cert-title">Generative AI Mega Workshop</h3>
+              <div class="cert-issuer">
+                <span>&#9632;</span> Large Language Models & GenAI
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 06: BATCAVE INTERACTIVE CLI TERMINAL -->
+    <section id="terminal" class="section-wrapper">
+      <div class="container">
+        <div class="section-tag">[ SECTION 06 // COMMAND LINE INTERFACE ]</div>
+        <h2 class="headline-lg" style="margin-bottom: var(--space-8);">BATCAVE MAIN-FRAME SHELL</h2>
+
+        <div class="terminal-module hud-panel">
+          <div class="terminal-top-bar">
+            <div class="terminal-top-left">
+              <div class="terminal-header-dots">
+                <span style="background: #ff5f56;"></span>
+                <span style="background: #ffbd2e;"></span>
+                <span style="background: #27c93f;"></span>
+              </div>
+              <span class="terminal-top-title">manjit@hyd-sec-core:~ (tty1) [VAPT_KERNEL v6.12]</span>
+            </div>
+            <span class="label-sm text-red">[INPUT READY]</span>
+          </div>
+
+          <div class="terminal-screen" id="terminal-screen">
+            <div class="terminal-output" id="terminal-output">
+  __      _____ _____ ___ _        _  _  _____   __
+  \ \    / /_ _| _ )_ _| |   /\   | \| |/ _ \ \ / /
+   \ \/\/ / | || _ \| || |__/ _ \  | .` | (_) \ V / 
+    \_/\_/ |___|___/___|___/_/ \_\ |_|\_|\___/ |_|  
+========================================================================
+MANJIT GOLCONDA // SECURITY CLI TERMINAL [HYDERABAD_NODE #0xHYD]
+Type '<span class="out-crimson">help</span>' for a list of tactical commands.
+Try typing: <span class="out-info">whoami</span>, <span class="out-info">skills</span>, <span class="out-info">projects</span>, <span class="out-info">education</span>, <span class="out-info">certs</span>, <span class="out-info">scan</span>
+========================================================================
+            </div>
+            
+            <form id="terminal-form" class="terminal-input-row" autocomplete="off">
+              <span class="terminal-prompt">manjit@hyd-sec-core:~$</span>
+              <input type="text" id="terminal-input" class="terminal-input" spellcheck="false" autofocus placeholder="Type command here (e.g. whoami, skills, projects, certs, scan)...">
+            </form>
+          </div>
+
+          <div class="terminal-shortcuts-bar">
+            <span class="text-muted">QUICK EXEC:</span>
+            <button class="terminal-shortcut-btn" data-cmd="help">help</button>
+            <button class="terminal-shortcut-btn" data-cmd="whoami">whoami</button>
+            <button class="terminal-shortcut-btn" data-cmd="skills">skills</button>
+            <button class="terminal-shortcut-btn" data-cmd="projects">projects</button>
+            <button class="terminal-shortcut-btn" data-cmd="education">education</button>
+            <button class="terminal-shortcut-btn" data-cmd="certs">certs</button>
+            <button class="terminal-shortcut-btn" data-cmd="scan">scan</button>
+            <button class="terminal-shortcut-btn" data-cmd="contact">contact</button>
+            <button class="terminal-shortcut-btn" data-cmd="clear">clear</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 07: SURVEILLANCE TIMELINE (EXPERIENCE) -->
+    <section id="experience" class="section-wrapper">
+      <div class="container">
+        <div class="section-tag">[ SECTION 07 // SURVEILLANCE LOGS ]</div>
+        <h2 class="headline-lg" style="margin-bottom: var(--space-8);">OPERATIONAL MISSION & PROJECT TIMELINE</h2>
+
+        <div class="timeline-container">
+          
+          <!-- Role 1 -->
+          <div class="timeline-item">
+            <div class="timeline-card hud-panel">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="timeline-role">CYBERSECURITY & SOFTWARE PROJECT WORK</h3>
+                  <div class="timeline-org">ACADEMIC & INDEPENDENT SECURITY LABS // HYDERABAD</div>
+                </div>
+                <div class="timeline-period">2025 — PRESENT</div>
+              </div>
+              <ul class="timeline-bullets">
+                <li>Performed controlled cybersecurity lab exercises covering reconnaissance, Nmap scanning, vulnerability assessment and penetration-testing concepts.</li>
+                <li>Worked with Kali Linux and automated tooling including Nmap, OpenVAS, OWASP ZAP and SQLMap in authorized lab environments.</li>
+                <li>Developed high-reliability web applications and project prototypes using HTML, CSS, JavaScript, React, Node.js and REST APIs.</li>
+              </ul>
+              <div class="status-stamp">[ACTIVE RESEARCH]</div>
+            </div>
+          </div>
+
+          <!-- Role 2 -->
+          <div class="timeline-item">
+            <div class="timeline-card hud-panel">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="timeline-role">HACKATHON DEVELOPER — MSME CONNECT</h3>
+                  <div class="timeline-org">MSME IDEA HACKATHON 5.0 // TEAM COLLABORATION</div>
+                </div>
+                <div class="timeline-period">2025</div>
+              </div>
+              <ul class="timeline-bullets">
+                <li>Contributed to a hyperlocal B2B marketplace concept for verified MSMEs, including AI matchmaking algorithms and QR business cards.</li>
+                <li>Engineered core stack components utilizing React.js, Tailwind CSS, Node.js, Express and JWT token-based authentication.</li>
+                <li>Collaborated across multidisciplinary team members to design, implement, and present the final hackathon solution.</li>
+              </ul>
+              <div class="status-stamp stamp-cyan">[HACKATHON RECOGNITION]</div>
+            </div>
+          </div>
+
+          <!-- Role 3 -->
+          <div class="timeline-item">
+            <div class="timeline-card hud-panel">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="timeline-role">INTERNAL LAB RESEARCHER — VAPT & PROTOCOL ANALYSIS</h3>
+                  <div class="timeline-org">CYBERSECURITY LABS // ISOLATED RESEARCH NODE</div>
+                </div>
+                <div class="timeline-period">2024 — 2025</div>
+              </div>
+              <ul class="timeline-bullets">
+                <li>Practiced mapping and scanning phases in an isolated lab environment and studied controlled exploitation through known vulnerabilities.</li>
+                <li>Studied authorized traffic-analysis exercises involving legacy protocols and network-security concepts such as ARP and DNS poisoning.</li>
+                <li>Configured custom Kali Linux audit scripts to automate vulnerability detection workflows and reporting.</li>
+              </ul>
+              <div class="status-stamp">[VERIFIED LAB RECORD]</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 08: ENCRYPTED DISPATCH (CONTACT) -->
+    <section id="contact" class="section-wrapper">
+      <div class="container">
+        <div class="section-tag">[ SECTION 08 // SECURE TRANSMISSION ]</div>
+        <h2 class="headline-lg" style="margin-bottom: var(--space-8);">INITIALIZE ENCRYPTED DISPATCH</h2>
+
+        <div class="dispatch-grid">
+          
+          <!-- Dispatch Form -->
+          <div class="dispatch-form-card chamfer-card">
+            <div class="module-header">
+              <div class="module-header-title">
+                <span class="indicator-dot"></span>
+                <span>SECURE CIPHER FORM [AES-256]</span>
+              </div>
+              <span class="label-sm text-red">DIRECT CHANNEL</span>
+            </div>
+
+            <form id="contact-form" autocomplete="off">
+              <div class="form-group">
+                <label for="contact-name" class="form-label">[ SENDER IDENTIFIER / ALIAS ]</label>
+                <input type="text" id="contact-name" class="form-input" required placeholder="Your Name / Company / Organization">
+              </div>
+
+              <div class="form-group">
+                <label for="contact-email" class="form-label">[ RETURN FREQUENCY / EMAIL / SIGNAL ]</label>
+                <input type="email" id="contact-email" class="form-input" required placeholder="your.email@domain.com">
+              </div>
+
+              <div class="form-group">
+                <label for="contact-mission" class="form-label">[ MISSION OBJECTIVE / OPPORTUNITY ]</label>
+                <select id="contact-mission" class="form-input" style="background: var(--surface-container-lowest);">
+                  <option value="Cybersecurity Analyst Role">Cybersecurity Analyst Role</option>
+                  <option value="VAPT & Pentesting Project">VAPT & Penetration Testing Project</option>
+                  <option value="SOC Operations Opportunity">SOC / Security Operations Opportunity</option>
+                  <option value="Secure Web Development">Secure Web / Full-Stack Project</option>
+                  <option value="General Professional Query">General Technical Query / Collaboration</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-message" class="form-label">[ TRANSMISSION PAYLOAD / DETAILS ]</label>
+                <textarea id="contact-message" class="form-textarea" required placeholder="Provide project scope, security role requirements, or collaboration details..."></textarea>
+              </div>
+
+              <div id="encryption-status" style="display: none; margin-bottom: 16px; font-family: var(--font-label); font-size: 0.75rem; color: var(--primary);">
+                <span class="indicator-dot" style="background: #52ff83; width: 6px; height: 6px; display: inline-block;"></span>
+                <span id="encryption-status-text">ENCRYPTING PAYLOAD WITH PGP PUBLIC KEY...</span>
+              </div>
+
+              <button type="submit" class="btn btn-primary" id="btn-submit-dispatch" style="width: 100%;">
+                <span>[ TRANSMIT ENCRYPTED DISPATCH ]</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+              </button>
+            </form>
+          </div>
+
+          <!-- PGP Key & Secure Channels -->
+          <div class="pgp-vault-card chamfer-card">
+            <div class="module-header">
+              <div class="module-header-title">
+                <span class="indicator-dot"></span>
+                <span>PUBLIC PGP FINGERPRINT</span>
+              </div>
+              <button class="btn btn-secondary btn-sm" id="btn-copy-pgp">[COPY KEY]</button>
+            </div>
+
+            <pre class="pgp-block" id="pgp-key-content">
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+Version: OpenPGP.js v5.0.0
+Comment: Manjit Golconda [VAPT-HYD-001] Master Key
+
+mQGNBF+0KtcBDADiB4r1Mv1m7rG9L6W7P9q2K5z8X4v1N3C7
+L9K8J7H6G5F4E3D2C1B0A9Z8Y7X6W5V4U3T2S1R0Q9P8O7N6
+M5L4K3J2I1H0G9F8E7D6C5B4A3Z2Y1X0W9V8U7T6S5R4Q3P2
+O1N0M9L8K7J6I5H4G3F2E1D0C9B8A7Z6Y5X4W3V2U1T0S9R8
+=0xMANJIT_GOLCONDA_HYD_4096
+-----END PGP PUBLIC KEY BLOCK-----
+            </pre>
+
+            <div class="label-md text-red" style="margin-top: var(--space-6);">// DIRECT SECURE CHANNELS</div>
+
+            <ul class="secure-channels-list">
+              <li>
+                <a href="mailto:manjitgolconda@gmail.com" class="secure-channel-link">
+                  <span>EMAIL // manjitgolconda@gmail.com</span>
+                  <span class="text-red">[SEND &rarr;]</span>
+                </a>
+              </li>
+              <li>
+                <a href="tel:+919063364603" class="secure-channel-link">
+                  <span>MOBILE // +91 9063364603</span>
+                  <span class="text-red">[CALL &rarr;]</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/manjit-golconda" target="_blank" rel="noopener" class="secure-channel-link">
+                  <span>LINKEDIN // linkedin.com/in/manjit-golconda</span>
+                  <span class="text-red">[CONNECT &rarr;]</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/manjitgolconda" target="_blank" rel="noopener" class="secure-channel-link">
+                  <span>GITHUB // github.com/manjitgolconda</span>
+                  <span class="text-red">[REPOSITORIES &rarr;]</span>
+                </a>
+              </li>
+              <li>
+                <a href="#terminal" class="secure-channel-link" onclick="executeCLICommand('whoami')">
+                  <span>BATCAVE SHELL PROMPT</span>
+                  <span class="text-cyan">[LAUNCH CLI &rarr;]</span>
+                </a>
+              </li>
+            </ul>
+
+            <div class="confidential-watermark">SECURE</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER MODULE -->
+  <footer class="footer-module">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <div class="footer-brand">
+          <div class="nav-logo-text" style="font-size: 1.25rem;">
+            MANJIT<span class="text-red">_GOLCONDA</span> // VAPT-001
+          </div>
+          <p>
+            Cyber Security Analyst & Ethical Hacker based in Hyderabad, India. Focused on Vulnerability Assessment, Penetration Testing, Application Security, and Robust System Design.
+          </p>
+          <div style="margin-top: 12px; font-size: 0.72rem; color: var(--outline);">
+            LATITUDE: 17.3850° N // LONGITUDE: 78.4867° E // HYDERABAD, INDIA
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-column-title">TACTICAL MODULES</div>
+          <ul class="footer-links">
+            <li><a href="#about">// 01. Personnel Dossier</a></li>
+            <li><a href="#education">// 02. Academic Education</a></li>
+            <li><a href="#skills">// 03. Technical Arsenal</a></li>
+            <li><a href="#projects">// 04. Active Operations</a></li>
+            <li><a href="#certifications">// 05. Certifications & Workshops</a></li>
+            <li><a href="#terminal">// 06. Batcave CLI Shell</a></li>
+            <li><a href="#experience">// 07. Surveillance Timeline</a></li>
+            <li><a href="#contact">// 08. Encrypted Dispatch</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-column-title">OPERATIONAL INTEGRITY</div>
+          <ul class="footer-links">
+            <li><span class="text-muted">OPERATOR:</span> <strong class="text-red">MANJIT GOLCONDA</strong></li>
+            <li><span class="text-muted">LOCATION:</span> HYDERABAD, INDIA</li>
+            <li><span class="text-muted">SPECIALIZATION:</span> VAPT & ETHICAL HACKING</li>
+            <li><span class="text-muted">PLATFORM:</span> KALI LINUX / SECURE SYSTEMS</li>
+            <li><a href="#hero" style="color: var(--primary); margin-top: 6px; display: inline-block;">▲ RETURN TO TOP</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div>
+          &copy; 2026 MANJIT GOLCONDA // CYBER SECURITY ANALYST // ALL RIGHTS RESERVED.
+        </div>
+        <div class="text-muted">
+          OPERATIONAL NOTICE: AUTHORIZED ETHICAL HACKING & SECURE PENETRATION TESTING PORTFOLIO.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- PROJECT SCHEMATIC DETAILS MODAL -->
+  <div class="hud-modal-overlay" id="project-modal" aria-hidden="true" role="dialog">
+    <div class="hud-modal-content chamfer-card">
+      <button class="modal-close-btn" id="modal-close-btn" aria-label="Close Modal">&times;</button>
+      <div class="module-header">
+        <div class="module-header-title">
+          <span class="indicator-dot"></span>
+          <span id="modal-project-code">OPERATION SCHEMATIC</span>
+        </div>
+        <span class="status-stamp" id="modal-project-status">[CLASSIFIED]</span>
+      </div>
+
+      <h2 class="headline-md" id="modal-project-title" style="margin-bottom: var(--space-4); color: #ffffff;">OPERATION TITLE</h2>
+
+      <div id="modal-project-body" style="font-size: 0.9rem; line-height: 1.7; color: var(--on-surface-variant); margin-bottom: var(--space-6);">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <div class="label-md text-red" style="margin-bottom: var(--space-2);">// ARCHITECTURAL SPECIFICATIONS</div>
+      <div id="modal-project-specs" style="background: #000000; border: 1px dashed var(--outline-variant); padding: var(--space-4); font-family: var(--font-body); font-size: 0.78rem; margin-bottom: var(--space-6); white-space: pre-wrap;">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <div style="display: flex; gap: var(--space-4); justify-content: flex-end;">
+        <button class="btn btn-secondary btn-sm" id="modal-action-close">[ CLOSE SCHEMATIC ]</button>
+        <a href="https://github.com/manjitgolconda" target="_blank" rel="noopener" class="btn btn-primary btn-sm" id="modal-action-github">[ VIEW REPOSITORY ]</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
