@@ -131,7 +131,11 @@
     if (tacticalCursor) {
       tacticalCursor.style.left = `${e.clientX}px`;
       tacticalCursor.style.top = `${e.clientY}px`;
-      if (!cursorVisible) {
+      
+      if (e.target.closest('.portrait-viewport')) {
+        tacticalCursor.style.opacity = '0';
+        cursorVisible = false;
+      } else if (!cursorVisible) {
         tacticalCursor.style.opacity = '1';
         cursorVisible = true;
       }
@@ -241,7 +245,7 @@
         ctx.restore();
 
         // Draw Bat Emblem in center of spotlight
-        drawBatInsignia(mouseX, mouseY, 1.4);
+        // drawBatInsignia(mouseX, mouseY, 1.4);
       }
 
       requestAnimationFrame(renderBatSignal);
