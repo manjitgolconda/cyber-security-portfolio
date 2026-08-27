@@ -908,7 +908,7 @@ h1, h2, h3, h4, h5, h6 {
   overflow: hidden;
   background: #000000;
   border: 1px solid var(--outline-variant);
-  cursor: pointer;
+  cursor: crosshair;
   user-select: none;
   clip-path: polygon(
     0 0,

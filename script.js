@@ -682,7 +682,6 @@ DELIVERABLE:  Detailed Threat Intelligence Incident Attribution Report
 
       if (!isHovering) {
         isHovering = true;
-        if (tacticalCursor) tacticalCursor.style.display = 'none';
         portraitViewport.classList.add('is-hovering');
         portraitViewport.style.setProperty('--spotlight-radius', '110px');
         setPortraitRevealed(true);
@@ -692,7 +691,6 @@ DELIVERABLE:  Detailed Threat Intelligence Incident Attribution Report
 
     portraitViewport.addEventListener('mouseleave', () => {
       isHovering = false;
-      if (tacticalCursor) tacticalCursor.style.display = '';
       portraitViewport.classList.remove('is-hovering');
       if (!portraitViewport.classList.contains('full-reveal')) {
         portraitViewport.style.setProperty('--spotlight-radius', '0px');
