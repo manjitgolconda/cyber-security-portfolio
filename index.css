@@ -2224,10 +2224,41 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 0 10px rgba(77, 208, 225, 0.3);
 }
 
-.cert-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+.cert-carousel-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  gap: var(--space-4);
+}
+
+.cert-carousel-wrapper {
+  flex: 1;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+}
+
+.cert-marquee-track {
+  display: flex;
+  width: max-content;
+  padding: var(--space-2) 0;
+  animation: scroll-left 50s linear infinite;
+}
+
+.cert-marquee-track:hover,
+.cert-marquee-track:active {
+  animation-play-state: paused;
+}
+
+.cert-marquee-group {
+  display: flex;
   gap: var(--space-5);
+  padding-right: var(--space-5);
+}
+
+@keyframes scroll-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
 .cert-card {
@@ -2239,6 +2270,18 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: space-between;
   position: relative;
   transition: all 0.25s ease;
+  min-width: 340px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .cert-card {
+    min-width: 280px;
+  }
+  .cert-carousel-wrapper {
+    mask-image: linear-gradient(to right, transparent, black 2%, black 98%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 2%, black 98%, transparent);
+  }
 }
 
 .cert-card:hover {
